@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Smooth scrolling for entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Link styles */
+  a:hover {
+    @apply text-emerald-600 dark:text-emerald-400;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-lg shadow-md p-6;
+  }
+
+  .card-hover {
+    @apply bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Fade in animation */
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  /* Slide up animation */
+  .slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  /* Animated component utilities */
+  .animate-on-scroll {
+    opacity: 0;
+  }
+
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    animation: slideUp 0.6s ease-out;
+  }
+
+  /* Fade in up animation */
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .animate-fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.6s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

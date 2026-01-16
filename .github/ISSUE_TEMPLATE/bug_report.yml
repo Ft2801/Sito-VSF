@@ -1,0 +1,113 @@
+name: Bug Report
+description: Segnala un bug che hai trovato
+labels: ['bug']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per aver segnalato un bug! Per favore, riempi i campi seguenti per aiutarci a risolvere il problema.
+
+  - type: input
+    id: title
+    attributes:
+      label: Titolo
+      description: Descrizione breve del bug
+      placeholder: "es: Dark mode non funziona su mobile"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrizione
+      description: Descrizione dettagliata del problema
+      placeholder: |
+        Descrivi cosa dovrebbe succedere e cosa succede invece.
+        Fornisci i passaggi per riprodurre il bug.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passaggi per Riprodurre
+      description: Elenco dei passaggi per riprodurre il bug
+      placeholder: |
+        1. Vai a...
+        2. Clicca su...
+        3. Osserva...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento Atteso
+      description: Cosa dovrebbe accadere?
+      placeholder: "es: La pagina dovrebbe caricarsi correttamente"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamento Effettivo
+      description: Cosa succede effettivamente?
+      placeholder: "es: La pagina non si carica"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: Quale browser usi?
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Opera
+        - Altro
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Sistema Operativo
+      description: "es: Windows 11, macOS 14, Ubuntu 22.04"
+      placeholder: "Sistema operativo e versione"
+    validations:
+      required: true
+
+  - type: input
+    id: node-version
+    attributes:
+      label: Versione Node.js
+      description: "Output di: node --version"
+      placeholder: "es: v20.10.0"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log degli Errori
+      description: Se applicabile, incolla i log della console del browser
+      render: bash
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshot
+      description: Puoi aggiungere schermate qui (drag and drop)
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: Ho verificato che questo bug non è già stato segnalato
+          required: true
+        - label: Ho testato su una versione recente
+          required: false

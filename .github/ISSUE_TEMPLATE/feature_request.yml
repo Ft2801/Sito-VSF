@@ -1,0 +1,65 @@
+name: Feature Request
+description: Suggerisci una nuova funzionalità
+labels: ['enhancement']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per il suggerimento! Descrivi la funzionalità che vorresti vedere.
+
+  - type: input
+    id: title
+    attributes:
+      label: Titolo
+      description: Titolo breve della feature
+      placeholder: "es: Aggiungere tema personalizzato"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrizione
+      description: Descrizione dettagliata della funzionalità proposta
+      placeholder: |
+        Descrivi la funzionalità che vorresti aggiungere.
+        Perché sarebbe utile?
+        Quali problemi risolverebbe?
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Caso d'Uso
+      description: Quale caso d'uso o problema questa feature risolverebbe?
+      placeholder: |
+        "Come utente voglio... in modo che..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Soluzione Proposta
+      description: "Descrivi la soluzione proposta (opzionale)"
+      placeholder: "Come pensi che potrebbe essere implementata?"
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Soluzioni Alternative
+      description: Hai considerato soluzioni alternative?
+      placeholder: |
+        Elenca eventuali alternative considerate
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: Ho controllato che questa feature non è già stata suggerita
+          required: true
+        - label: Questa feature è compatibile con lo scopo del progetto
+          required: false
