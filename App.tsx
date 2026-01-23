@@ -12,7 +12,6 @@ import PreventionPage from './pages/PreventionPage';
 import AlertsPage from './pages/AlertsPage';
 import GalleryPage from './pages/GalleryPage';
 import DonationPage from './pages/DonationPage';
-import { ThemeProvider } from './context/ThemeContext';
 import PreventionDetailPage from './pages/prevention/PreventionDetailPage';
 
 const ScrollToTop = () => {
@@ -55,11 +54,9 @@ const AppContent: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider>
-      <HashRouter>
-        <AppContent />
-      </HashRouter>
-    </ThemeProvider>
+    <HashRouter>
+      <AppContent />
+    </HashRouter>
   );
 };
 

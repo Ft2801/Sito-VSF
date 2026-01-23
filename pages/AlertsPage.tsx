@@ -3,6 +3,7 @@ import AnimatedComponent from '../components/AnimatedComponent';
 import WeatherWidget from '../components/WeatherWidget';
 import type { Alert } from '../types';
 import { fetchAlertsData } from '../api/client';
+import SkeletonLoader from '../components/SkeletonLoader';
 
 const getAlertStyles = (level: Alert['level']) => {
   switch (level) {
@@ -18,30 +19,30 @@ const getAlertStyles = (level: Alert['level']) => {
 };
 
 const AlertCard: React.FC<{ alert: Alert }> = ({ alert }) => {
-    const styles = getAlertStyles(alert.level);
-    return (
-        <div className={`bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 ${styles.borderColor}`}>
-            <div className="flex items-start gap-4">
-                <i className={`fas ${styles.icon} ${styles.iconColor} text-2xl mt-1`}></i>
-                <div>
-                    <p className="text-sm font-semibold text-gray-500 dark:text-gray-400">{alert.type} - {alert.date}</p>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-1 mb-2">{alert.title}</h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-3">{alert.description}</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-500">Fonte: {alert.source}</p>
-                </div>
-            </div>
+  const styles = getAlertStyles(alert.level);
+  return (
+    <div className={`bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 ${styles.borderColor}`}>
+      <div className="flex items-start gap-4">
+        <i className={`fas ${styles.icon} ${styles.iconColor} text-2xl mt-1`}></i>
+        <div>
+          <p className="text-sm font-semibold text-gray-500 dark:text-gray-400">{alert.type} - {alert.date}</p>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-1 mb-2">{alert.title}</h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-3">{alert.description}</p>
+          <p className="text-xs text-gray-600 dark:text-gray-500">Fonte: {alert.source}</p>
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
 const LegendItem: React.FC<{ color: string, level: string, description: string }> = ({ color, level, description }) => (
-    <div className="flex items-center gap-3">
-        <div className={`w-8 h-8 rounded-full ${color}`}></div>
-        <div>
-            <p className="font-bold text-gray-900 dark:text-white">{level}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
-        </div>
+  <div className="flex items-center gap-3">
+    <div className={`w-8 h-8 rounded-full ${color}`}></div>
+    <div>
+      <p className="font-bold text-gray-900 dark:text-white">{level}</p>
+      <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
     </div>
+  </div>
 );
 
 
@@ -51,15 +52,15 @@ const AlertsPage: React.FC = () => {
 
   useEffect(() => {
     const loadAlerts = async () => {
-        setLoading(true);
-        try {
-            const data = await fetchAlertsData();
-            setAlerts(data);
-        } catch (error) {
-            console.error("Errore nel recupero allerte:", error);
-        } finally {
-            setLoading(false);
-        }
+      setLoading(true);
+      try {
+        const data = await fetchAlertsData();
+        setAlerts(data);
+      } catch (error) {
+        console.error("Errore nel recupero allerte:", error);
+      } finally {
+        setLoading(false);
+      }
     };
     loadAlerts();
   }, []);
@@ -78,39 +79,49 @@ const AlertsPage: React.FC = () => {
         <AnimatedComponent delay={100} className="mb-12">
           <WeatherWidget />
         </AnimatedComponent>
-        
+
         <AnimatedComponent delay={200} className="mb-12">
-            <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Legenda Livelli di Allerta</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <LegendItem color="bg-green-500" level="Verde" description="Nessuna criticità" />
-                    <LegendItem color="bg-yellow-500" level="Gialla" description="Criticità ordinaria" />
-                    <LegendItem color="bg-orange-500" level="Arancione" description="Criticità moderata" />
-                    <LegendItem color="bg-red-500" level="Rossa" description="Criticità elevata" />
-                </div>
+          <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Legenda Livelli di Allerta</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <LegendItem color="bg-green-500" level="Verde" description="Nessuna criticità" />
+              <LegendItem color="bg-yellow-500" level="Gialla" description="Criticità ordinaria" />
+              <LegendItem color="bg-orange-500" level="Arancione" description="Criticità moderata" />
+              <LegendItem color="bg-red-500" level="Rossa" description="Criticità elevata" />
             </div>
+          </div>
         </AnimatedComponent>
-        
+
         <div className="space-y-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center">Allerte in Corso</h2>
-            {loading ? (
-                 <AnimatedComponent delay={300}>
-                    <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg flex items-center justify-center min-h-[150px]">
-                        <i className="fas fa-spinner fa-spin text-3xl text-emerald-500 mr-4"></i>
-                        <span className="text-gray-600 dark:text-gray-400">Caricamento allerte...</span>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center">Allerte in Corso</h2>
+          {loading ? (
+            <div className="space-y-6">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-gray-300 dark:border-gray-700">
+                  <div className="flex items-start gap-4">
+                    <SkeletonLoader variant="circular" width="32px" height="32px" />
+                    <div className="flex-1">
+                      <SkeletonLoader variant="text" width="20%" className="mb-2" />
+                      <SkeletonLoader variant="text" width="60%" height="28px" className="mb-2" />
+                      <SkeletonLoader variant="text" width="90%" className="mb-1" />
+                      <SkeletonLoader variant="text" width="80%" className="mb-3" />
+                      <SkeletonLoader variant="text" width="15%" height="12px" />
                     </div>
-                </AnimatedComponent>
-             ) : alerts.length > 0 ? (
-                alerts.map((alert, index) => (
-                    <AnimatedComponent key={alert.id} delay={100 * (index + 3)}>
-                        <AlertCard alert={alert} />
-                    </AnimatedComponent>
-                ))
-            ) : (
-                <AnimatedComponent delay={300} className="text-center text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 p-8 rounded-lg">
-                    <p>Al momento non ci sono allerte attive.</p>
-                </AnimatedComponent>
-            )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : alerts.length > 0 ? (
+            alerts.map((alert, index) => (
+              <AnimatedComponent key={alert.id} delay={100 * (index + 3)}>
+                <AlertCard alert={alert} />
+              </AnimatedComponent>
+            ))
+          ) : (
+            <AnimatedComponent delay={300} className="text-center text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 p-8 rounded-lg">
+              <p>Al momento non ci sono allerte attive.</p>
+            </AnimatedComponent>
+          )}
         </div>
       </div>
     </div>

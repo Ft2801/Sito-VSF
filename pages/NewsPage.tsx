@@ -3,6 +3,7 @@ import NewsCard from '../components/NewsCard';
 import type { NewsArticle, Category } from '../types';
 import AnimatedComponent from '../components/AnimatedComponent';
 import { fetchNewsData } from '../api/client';
+import SkeletonLoader from '../components/SkeletonLoader';
 
 const categories: ('Tutte' | Category)[] = ['Tutte', 'Interventi', 'Esercitazioni', 'Eventi', 'Formazione'];
 
@@ -18,7 +19,7 @@ const NewsPage: React.FC = () => {
       try {
         const data = await fetchNewsData();
         setAllArticles(data);
-        setFilteredArticles(data); 
+        setFilteredArticles(data);
       } catch (error) {
         console.error("Errore nel recupero notizie:", error);
         setFilteredArticles([]);
@@ -52,21 +53,35 @@ const NewsPage: React.FC = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-5 py-2 rounded-full font-semibold text-sm md:text-base transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-50 ${
-                selectedCategory === category
-                  ? 'bg-emerald-600 text-white shadow-lg scale-105'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-500 hover:text-white hover:scale-105'
-              }`}
+              className={`px-5 py-2 rounded-full font-semibold text-sm md:text-base transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-50 ${selectedCategory === category
+                ? 'bg-emerald-600 text-white shadow-lg scale-105'
+                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-500 hover:text-white hover:scale-105'
+                }`}
             >
               {category}
             </button>
           ))}
         </AnimatedComponent>
-        
+
         {loading ? (
-          <div className="text-center py-10">
-            <i className="fas fa-spinner fa-spin text-4xl text-emerald-500"></i>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">Caricamento notizie...</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-full flex flex-col border border-gray-100 dark:border-gray-700">
+                <div style={{ height: '192px' }} className="w-full bg-gray-200 dark:bg-gray-700">
+                  <SkeletonLoader variant="rectangular" height="100%" className="w-full" />
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex justify-between items-center mb-4">
+                    <SkeletonLoader variant="text" width="30%" />
+                    <SkeletonLoader variant="text" width="20%" />
+                  </div>
+                  <SkeletonLoader variant="text" width="80%" className="mb-2" />
+                  <SkeletonLoader variant="text" width="60%" className="mb-4" />
+                  <SkeletonLoader variant="text" width="100%" />
+                  <SkeletonLoader variant="text" width="100%" className="mt-2" />
+                </div>
+              </div>
+            ))}
           </div>
         ) : filteredArticles.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

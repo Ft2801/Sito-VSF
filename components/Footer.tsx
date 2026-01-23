@@ -14,26 +14,26 @@ const Footer: React.FC = () => {
   const [contactInfo, setContactInfo] = useState<ContactInfo | null>(null);
 
   useEffect(() => {
-      const loadContactInfo = async () => {
-          try {
-              const data = await fetchContactInfo();
-              setContactInfo(data);
-          } catch (error) {
-              console.error("Errore nel recupero delle informazioni di contatto:", error);
-          }
-      };
-      loadContactInfo();
+    const loadContactInfo = async () => {
+      try {
+        const data = await fetchContactInfo();
+        setContactInfo(data);
+      } catch (error) {
+        console.error("Errore nel recupero delle informazioni di contatto:", error);
+      }
+    };
+    loadContactInfo();
   }, []);
 
   return (
     <footer className="bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-white">
       <div className="container mx-auto px-6 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
           <div>
             <h3 className="text-xl font-bold mb-4">
-               <span className="text-green-500 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] dark:[text-shadow:none]">Volontari</span> <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] dark:[text-shadow:none]">Senza</span> <span className="text-red-500 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] dark:[text-shadow:none]">Frontiere</span>
+              <span className="text-green-500 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] dark:[text-shadow:none]">Volontari</span> <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] dark:[text-shadow:none]">Senza</span> <span className="text-red-500 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] dark:[text-shadow:none]">Frontiere</span>
             </h3>
-            <div className="mt-4 flex space-x-6">
+            <div className="mt-4 flex justify-center md:justify-start space-x-6">
               <SocialIcon href="https://m.facebook.com/volontarisenzafrontierepescara/" iconClass="fa-facebook" />
               <SocialIcon href="https://www.instagram.com/volontari_senza_frontiere_pe/" iconClass="fa-instagram" />
             </div>
@@ -56,29 +56,32 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-bold mb-4">Sede Legale</h3>
             {contactInfo ? (
               <p className="text-gray-600 dark:text-gray-400">
-                  {contactInfo.addressLine1}<br/>
-                  {contactInfo.addressLine2}<br/><br/>
-                  <a href={`mailto:${contactInfo.email}`} className="hover:text-emerald-500">{contactInfo.email}</a><br/>
-                  <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="hover:text-emerald-500">{contactInfo.phone}</a>
+                {contactInfo.addressLine1}<br />
+                {contactInfo.addressLine2}<br /><br />
+                <a href={`mailto:${contactInfo.email}`} className="hover:text-emerald-500">{contactInfo.email}</a><br />
+                <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="hover:text-emerald-500">{contactInfo.phone}</a>
               </p>
             ) : (
               <p className="text-gray-600 dark:text-gray-400">Caricamento contatti...</p>
             )}
           </div>
           <div>
-             <h3 className="text-xl font-bold mb-4">Emergenze</h3>
-             <p className="text-gray-600 dark:text-gray-400">
-                Numero Unico Emergenze<br/>
-                <span className="text-2xl font-bold text-gray-900 dark:text-white">112</span>
-             </p>
-             <p className="text-gray-600 dark:text-gray-400 mt-2">
-                Guardia Costiera<br/>
-                <span className="text-xl font-bold text-gray-900 dark:text-white">1530</span>
-             </p>
+            <h3 className="text-xl font-bold mb-4">Emergenze</h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              Numero Unico Emergenze<br />
+              <span className="text-2xl font-bold text-gray-900 dark:text-white">112</span>
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 mt-2">
+              Guardia Costiera<br />
+              <span className="text-xl font-bold text-gray-900 dark:text-white">1530</span>
+            </p>
           </div>
         </div>
-        <div className="mt-10 border-t border-gray-300 dark:border-gray-700 pt-6 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} Volontari Senza Frontiere. Tutti i diritti riservati.</p>
+        <div className="mt-10 border-t border-gray-300 dark:border-gray-700 pt-6 text-center text-gray-500 text-sm flex flex-col items-center">
+          <p className="mb-2">&copy; {new Date().getFullYear()} Volontari Senza Frontiere. Tutti i diritti riservati.</p>
+          <p>
+            Sito realizzato da <a href="https://ft2801.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" className="text-emerald-500 hover:text-emerald-400 transition-colors font-medium">Fabio Tempera</a>
+          </p>
         </div>
       </div>
     </footer>

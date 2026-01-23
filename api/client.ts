@@ -133,7 +133,6 @@ const mockAlerts: Alert[] = [
 ];
 
 export const fetchAlertsData = async (): Promise<Alert[]> => {
-    console.log("Simulating API call to fetch alerts...");
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(mockAlerts);
@@ -178,7 +177,6 @@ const mockNews: NewsArticle[] = [
 ];
 
 export const fetchNewsData = async (): Promise<NewsArticle[]> => {
-    console.log("Simulating API call to fetch news...");
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(mockNews);
@@ -221,7 +219,6 @@ const mockServices: Service[] = [
 ];
 
 export const fetchServicesData = async (): Promise<Service[]> => {
-    console.log("Simulating API call to fetch services...");
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(mockServices);
@@ -255,7 +252,6 @@ const mockTestimonials: Testimonial[] = [
 ];
 
 export const fetchTestimonialsData = async (): Promise<Testimonial[]> => {
-    console.log("Simulating API call to fetch testimonials...");
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(mockTestimonials);
@@ -264,34 +260,21 @@ export const fetchTestimonialsData = async (): Promise<Testimonial[]> => {
 };
 
 // --- GALLERY ---
-const mockDedicatedGalleryImages: GalleryImage[] = [
-    { id: 'gallery-5', src: 'https://picsum.photos/id/1011/800/600', alt: 'Squadra di ricerca persona scomparsa', category: 'Interventi' },
-    { id: 'gallery-7', src: 'https://picsum.photos/id/823/800/600', alt: 'Momento di gruppo dei volontari', category: 'Eventi' },
-    { id: 'gallery-9', src: 'https://picsum.photos/id/312/800/600', alt: 'Un nuovo volontario si unisce al gruppo', category: 'Formazione' },
+const localGalleryImages: GalleryImage[] = [
+    { id: 'gallery-1', src: `${import.meta.env.BASE_URL}images/alluvione.webp`, alt: 'Intervento alluvione', category: 'Interventi' },
+    { id: 'gallery-2', src: `${import.meta.env.BASE_URL}images/distribuzione.webp`, alt: 'Distribuzione beni', category: 'Interventi' },
+    { id: 'gallery-3', src: `${import.meta.env.BASE_URL}images/eventi-strada.webp`, alt: 'Sicurezza eventi stradali', category: 'Eventi' },
+    { id: 'gallery-4', src: `${import.meta.env.BASE_URL}images/pattugliamento-incendi.webp`, alt: 'Pattugliamento AIB', category: 'Interventi' },
+    { id: 'gallery-5', src: `${import.meta.env.BASE_URL}images/scuole.webp`, alt: 'Formazione nelle scuole', category: 'Formazione' },
+    { id: 'gallery-6', src: `${import.meta.env.BASE_URL}images/chi-siamo.webp`, alt: 'Gruppo Volontari', category: 'Eventi' },
+    { id: 'gallery-7', src: `${import.meta.env.BASE_URL}images/notizie.webp`, alt: 'Operatività', category: 'Esercitazioni' },
 ];
 
 export const fetchAllGalleryImages = async (): Promise<GalleryImage[]> => {
-    console.log("Simulating API call to fetch all gallery images...");
-    const newsArticles = await fetchNewsData();
-
-    const newsImages: GalleryImage[] = newsArticles.map(article => {
-        const urlMatch = article.imageUrl.match(/\?image=(\d+)/);
-        const imageId = urlMatch ? urlMatch[1] : null;
-
-        return {
-            id: `news-${article.id}`,
-            src: imageId ? `https://picsum.photos/id/${imageId}/800/600` : article.imageUrl,
-            alt: article.title,
-            category: article.category
-        };
-    });
-
-    const allImages = [...newsImages, ...mockDedicatedGalleryImages];
-
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve(allImages);
-        }, 1400);
+            resolve(localGalleryImages);
+        }, 800);
     });
 };
 
@@ -306,7 +289,6 @@ const mockPreventionArticles: PreventionArticle[] = [
 ];
 
 export const fetchPreventionArticles = async (): Promise<PreventionArticle[]> => {
-    console.log("Simulating API call to fetch prevention articles...");
     return new Promise(resolve => {
         setTimeout(() => resolve(mockPreventionArticles), 700);
     });
@@ -382,7 +364,6 @@ const mockPreventionDetails: PreventionArticleDetail[] = [
 ];
 
 export const fetchPreventionArticleDetail = async (slug: string): Promise<PreventionArticleDetail | undefined> => {
-    console.log(`Simulating API call to fetch prevention detail for slug: ${slug}`);
     return new Promise(resolve => {
         setTimeout(() => {
             const article = mockPreventionDetails.find(p => p.slug === slug);
@@ -399,7 +380,6 @@ const mockDonationInfo: DonationInfo = {
 };
 
 export const fetchDonationInfo = async (): Promise<DonationInfo> => {
-    console.log("Simulating API call to fetch donation info...");
     return new Promise(resolve => {
         setTimeout(() => resolve(mockDonationInfo), 500);
     });
@@ -409,12 +389,11 @@ export const fetchDonationInfo = async (): Promise<DonationInfo> => {
 const mockContactInfo: ContactInfo = {
     addressLine1: "Via Lago Sant'Angelo, 9/1",
     addressLine2: "65129 Pescara PE",
-    email: "info@vsf.example.com",
+    email: "volontarisenzafrontiere@yahoo.it",
     phone: "+39 012 345 6789"
 };
 
 export const fetchContactInfo = async (): Promise<ContactInfo> => {
-    console.log("Simulating API call to fetch contact info...");
     return new Promise(resolve => {
         setTimeout(() => resolve(mockContactInfo), 400);
     });

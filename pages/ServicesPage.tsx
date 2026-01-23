@@ -3,6 +3,7 @@ import ServiceCard from '../components/ServiceCard';
 import type { Service } from '../types';
 import AnimatedComponent from '../components/AnimatedComponent';
 import { fetchServicesData } from '../api/client';
+import SkeletonLoader from '../components/SkeletonLoader';
 
 const ServicesPage: React.FC = () => {
   const [services, setServices] = useState<Service[]>([]);
@@ -33,10 +34,24 @@ const ServicesPage: React.FC = () => {
           </p>
         </AnimatedComponent>
 
+
         {loading ? (
-          <div className="text-center py-10">
-            <i className="fas fa-spinner fa-spin text-4xl text-emerald-500"></i>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">Caricamento servizi...</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col h-full border border-gray-100 dark:border-gray-700">
+                <div className="p-6">
+                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-emerald-100 dark:bg-gray-700 mb-4 mx-auto">
+                    <SkeletonLoader variant="circular" width="32px" height="32px" />
+                  </div>
+                  <div className="flex justify-center mb-2">
+                    <SkeletonLoader variant="text" width="60%" height="24px" />
+                  </div>
+                  <SkeletonLoader variant="text" width="100%" className="mb-2" />
+                  <SkeletonLoader variant="text" width="100%" className="mb-2" />
+                  <SkeletonLoader variant="text" width="80%" />
+                </div>
+              </div>
+            ))}
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

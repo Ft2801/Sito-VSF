@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-interface AnimatedComponentProps {
+interface AnimatedComponentProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   initialClass?: string;
   delay?: number;
 }
 
-const AnimatedComponent: React.FC<AnimatedComponentProps> = ({ children, className = '', initialClass = 'animate-fade-in-up', delay=0 }) => {
+const AnimatedComponent: React.FC<AnimatedComponentProps> = ({ children, className = '', initialClass = 'animate-fade-in-up', delay = 0, ...rest }) => {
   const domRef = useRef<HTMLDivElement>(null);
   const [isVisible, setVisible] = useState(false);
 
@@ -17,11 +17,11 @@ const AnimatedComponent: React.FC<AnimatedComponentProps> = ({ children, classNa
         const timer = setTimeout(() => setVisible(true), delay);
         const currentRef = domRef.current;
         if (currentRef) {
-           observer.unobserve(currentRef);
+          observer.unobserve(currentRef);
         }
         return () => clearTimeout(timer);
       }
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05 });
 
     const currentRef = domRef.current;
     if (currentRef) {
@@ -39,6 +39,7 @@ const AnimatedComponent: React.FC<AnimatedComponentProps> = ({ children, classNa
     <div
       ref={domRef}
       className={`${className} animate-on-scroll ${initialClass} ${isVisible ? 'is-visible' : ''}`}
+      {...rest}
     >
       {children}
     </div>

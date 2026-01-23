@@ -4,6 +4,7 @@
   /* Smooth scrolling for entire page */
   html {
     scroll-behavior: smooth;
+    @apply bg-white text-gray-900 overflow-x-hidden;
   }
 
   /* Link styles */
