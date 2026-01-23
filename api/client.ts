@@ -1,9 +1,9 @@
-import type { 
-    Alert, 
-    WeatherApiResponse, 
-    NewsArticle, 
-    Service, 
-    Testimonial, 
+import type {
+    Alert,
+    WeatherApiResponse,
+    NewsArticle,
+    Service,
+    Testimonial,
     GalleryImage,
     PreventionArticle,
     PreventionArticleDetail,
@@ -112,24 +112,24 @@ export const fetchWeatherData = async (): Promise<WeatherApiResponse> => {
 
 // --- ALERTS ---
 const mockAlerts: Alert[] = [
-  {
-    id: 1,
-    level: 'yellow',
-    type: 'Regionale',
-    title: 'Allerta Gialla per Rischio Temporali',
-    description: 'Previsti rovesci di forte intensità, frequente attività elettrica, grandinate e forti raffiche di vento sulla regione Abruzzo. Prestare attenzione.',
-    source: 'Dipartimento Protezione Civile',
-    date: '20 Ottobre 2025'
-  },
-  {
-    id: 2,
-    level: 'green',
-    type: 'Nazionale',
-    title: 'Nessuna Allerta Meteo Nazionale',
-    description: 'La situazione meteorologica sulla penisola non presenta criticità significative nelle prossime 24 ore.',
-    source: 'Dipartimento Protezione Civile',
-    date: '20 Ottobre 2025'
-  }
+    {
+        id: 1,
+        level: 'yellow',
+        type: 'Regionale',
+        title: 'Allerta Gialla per Rischio Temporali',
+        description: 'Previsti rovesci di forte intensità, frequente attività elettrica, grandinate e forti raffiche di vento sulla regione Abruzzo. Prestare attenzione.',
+        source: 'Dipartimento Protezione Civile',
+        date: '20 Ottobre 2025'
+    },
+    {
+        id: 2,
+        level: 'green',
+        type: 'Nazionale',
+        title: 'Nessuna Allerta Meteo Nazionale',
+        description: 'La situazione meteorologica sulla penisola non presenta criticità significative nelle prossime 24 ore.',
+        source: 'Dipartimento Protezione Civile',
+        date: '20 Ottobre 2025'
+    }
 ];
 
 export const fetchAlertsData = async (): Promise<Alert[]> => {
@@ -143,38 +143,38 @@ export const fetchAlertsData = async (): Promise<Alert[]> => {
 
 // --- NEWS ---
 const mockNews: NewsArticle[] = [
-  {
-    id: 1,
-    date: '14 Settembre 2025',
-    title: 'Partecipazione a "Città Sicura"',
-    description: 'I nostri volontari hanno partecipato attivamente all\'evento "Città Sicura", tenendo dimostrazioni di primo soccorso e manovre di disostruzione pediatrica per la cittadinanza.',
-    imageUrl: 'https://picsum.photos/400/300?image=10',
-    category: 'Eventi',
-  },
-  {
-    id: 2,
-    date: '6 Agosto 2025',
-    title: 'Esercitazione Antincendio Boschivo',
-    description: 'In collaborazione con i Vigili del Fuoco, abbiamo svolto un\'importante esercitazione per testare le nuove attrezzature e affinare le procedure di intervento in caso di incendi boschivi estivi.',
-    imageUrl: 'https://picsum.photos/400/300?image=204',
-    category: 'Esercitazioni',
-  },
-  {
-    id: 3,
-    date: '22 Giugno 2025',
-    title: 'Supporto alla Sagra del Paese',
-    description: 'Come ogni anno, abbiamo garantito l\'assistenza sanitaria e il supporto logistico durante la tradizionale sagra del paese, assicurando che tutto si svolgesse in piena sicurezza.',
-    imageUrl: 'https://picsum.photos/400/300?image=1074',
-    category: 'Eventi',
-  },
-  {
-    id: 4,
-    date: '1 Maggio 2025',
-    title: 'Consegna Pacchi Alimentari',
-    description: 'Grazie alla generosità dei cittadini, abbiamo raccolto e distribuito pacchi alimentari a oltre 50 famiglie in difficoltà del nostro territorio, un piccolo gesto di grande solidarietà.',
-    imageUrl: 'https://picsum.photos/400/300?image=433',
-    category: 'Interventi',
-  },
+    {
+        id: 1,
+        date: '14 Settembre 2025',
+        title: 'Partecipazione a "Città Sicura"',
+        description: 'I nostri volontari hanno partecipato attivamente all\'evento "Città Sicura", tenendo dimostrazioni di primo soccorso e manovre di disostruzione pediatrica per la cittadinanza.',
+        imageUrl: 'https://picsum.photos/400/300?image=10',
+        category: 'Eventi',
+    },
+    {
+        id: 2,
+        date: '6 Agosto 2025',
+        title: 'Esercitazione Antincendio Boschivo',
+        description: 'In collaborazione con i Vigili del Fuoco, abbiamo svolto un\'importante esercitazione per testare le nuove attrezzature e affinare le procedure di intervento in caso di incendi boschivi estivi.',
+        imageUrl: 'https://picsum.photos/400/300?image=204',
+        category: 'Esercitazioni',
+    },
+    {
+        id: 3,
+        date: '22 Giugno 2025',
+        title: 'Supporto alla Sagra del Paese',
+        description: 'Come ogni anno, abbiamo garantito l\'assistenza sanitaria e il supporto logistico durante la tradizionale sagra del paese, assicurando che tutto si svolgesse in piena sicurezza.',
+        imageUrl: 'https://picsum.photos/400/300?image=1074',
+        category: 'Eventi',
+    },
+    {
+        id: 4,
+        date: '1 Maggio 2025',
+        title: 'Consegna Pacchi Alimentari',
+        description: 'Grazie alla generosità dei cittadini, abbiamo raccolto e distribuito pacchi alimentari a oltre 50 famiglie in difficoltà del nostro territorio, un piccolo gesto di grande solidarietà.',
+        imageUrl: 'https://picsum.photos/400/300?image=433',
+        category: 'Interventi',
+    },
 ];
 
 export const fetchNewsData = async (): Promise<NewsArticle[]> => {
@@ -188,36 +188,36 @@ export const fetchNewsData = async (): Promise<NewsArticle[]> => {
 
 // --- SERVICES ---
 const mockServices: Service[] = [
-  {
-    id: 1,
-    title: 'Gestione Emergenza Alluvione',
-    description: 'Intervento tempestivo durante l\'alluvione di Novembre, con evacuazione di famiglie e messa in sicurezza degli argini del fiume con sacchi di sabbia.',
-    imageUrl: 'https://picsum.photos/400/300?image=1043'
-  },
-  {
-    id: 2,
-    title: 'Campagna Antincendio Boschivo Estiva',
-    description: 'Pattugliamento e monitoraggio delle aree boschive per tutta la stagione estiva. Diversi principi di incendio sono stati spenti sul nascere grazie alla nostra vigilanza.',
-    imageUrl: 'https://picsum.photos/400/300?image=203'
-  },
-  {
-    id: 3,
-    title: 'Presidio Strade per Eventi e Manifestazioni',
-    description: 'Forniamo supporto logistico e di sicurezza stradale durante eventi sportivi, sagre e manifestazioni, garantendo la sicurezza di partecipanti e spettatori.',
-    imageUrl: 'https://picsum.photos/400/300?image=1072'
-  },
-  {
-    id: 5,
-    title: 'Distribuzione Viveri e Beni di Prima Necessità',
-    description: 'Organizzazione di un centro di raccolta e distribuzione di aiuti per le famiglie colpite dalla crisi economica, fornendo cibo, vestiti e supporto morale.',
-    imageUrl: 'https://picsum.photos/400/300?image=431'
-  },
-   {
-    id: 6,
-    title: 'Formazione nelle Scuole',
-    description: 'Ciclo di incontri nelle scuole primarie e secondarie per educare i più giovani sulle norme di comportamento in caso di terremoto e altri rischi.',
-    imageUrl: 'https://picsum.photos/400/300?image=24'
-  },
+    {
+        id: 1,
+        title: 'Gestione Emergenza Alluvione',
+        description: 'Intervento tempestivo durante l\'alluvione di Novembre, con evacuazione di famiglie e messa in sicurezza degli argini del fiume con sacchi di sabbia.',
+        imageUrl: `${import.meta.env.BASE_URL}images/alluvione.webp`
+    },
+    {
+        id: 2,
+        title: 'Campagna Antincendio Boschivo Estiva',
+        description: 'Pattugliamento e monitoraggio delle aree boschive per tutta la stagione estiva. Diversi principi di incendio sono stati spenti sul nascere grazie alla nostra vigilanza.',
+        imageUrl: `${import.meta.env.BASE_URL}images/pattugliamento-incendi.webp`
+    },
+    {
+        id: 3,
+        title: 'Presidio Strade per Eventi e Manifestazioni',
+        description: 'Forniamo supporto logistico e di sicurezza stradale durante eventi sportivi, sagre e manifestazioni, garantendo la sicurezza di partecipanti e spettatori.',
+        imageUrl: `${import.meta.env.BASE_URL}images/eventi-strada.webp`
+    },
+    {
+        id: 5,
+        title: 'Distribuzione Viveri e Beni di Prima Necessità',
+        description: 'Organizzazione di un centro di raccolta e distribuzione di aiuti per le famiglie colpite dalla crisi economica, fornendo cibo, vestiti e supporto morale.',
+        imageUrl: `${import.meta.env.BASE_URL}images/distribuzione.webp`
+    },
+    {
+        id: 6,
+        title: 'Formazione nelle Scuole',
+        description: 'Ciclo di incontri nelle scuole primarie e secondarie per educare i più giovani sulle norme di comportamento in caso di terremoto e altri rischi.',
+        imageUrl: `${import.meta.env.BASE_URL}images/scuole.webp`
+    },
 ];
 
 export const fetchServicesData = async (): Promise<Service[]> => {
@@ -231,27 +231,27 @@ export const fetchServicesData = async (): Promise<Service[]> => {
 
 // --- TESTIMONIALS ---
 const mockTestimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: 'Marco Rossi',
-    role: 'Volontario dal 2018',
-    quote: 'Essere un volontario mi ha cambiato la vita. Ho imparato il valore del lavoro di squadra e la gioia di aiutare chi è in difficoltà. È un\'esperienza che consiglio a tutti.',
-    imageUrl: 'https://picsum.photos/id/64/100/100'
-  },
-  {
-    id: 2,
-    name: 'Giulia Bianchi',
-    role: 'Volontaria dal 2020',
-    quote: 'Pensavo di dare solo il mio tempo, invece ho ricevuto molto di più. Ho trovato una seconda famiglia e ho acquisito competenze che mi sono utili anche nella vita di tutti i giorni.',
-    imageUrl: 'https://picsum.photos/id/65/100/100'
-  },
-   {
-    id: 3,
-    name: 'Alessandro Verdi',
-    role: 'Caposquadra',
-    quote: 'Ogni intervento è una sfida, ma la gratitudine negli occhi delle persone che aiutiamo ripaga di ogni fatica. Siamo una squadra unita, pronta a tutto per la nostra comunità.',
-    imageUrl: 'https://picsum.photos/id/237/100/100'
-  }
+    {
+        id: 1,
+        name: 'Marco Rossi',
+        role: 'Volontario dal 2018',
+        quote: 'Essere un volontario mi ha cambiato la vita. Ho imparato il valore del lavoro di squadra e la gioia di aiutare chi è in difficoltà. È un\'esperienza che consiglio a tutti.',
+        imageUrl: 'https://picsum.photos/id/64/100/100'
+    },
+    {
+        id: 2,
+        name: 'Giulia Bianchi',
+        role: 'Volontaria dal 2020',
+        quote: 'Pensavo di dare solo il mio tempo, invece ho ricevuto molto di più. Ho trovato una seconda famiglia e ho acquisito competenze che mi sono utili anche nella vita di tutti i giorni.',
+        imageUrl: 'https://picsum.photos/id/65/100/100'
+    },
+    {
+        id: 3,
+        name: 'Alessandro Verdi',
+        role: 'Caposquadra',
+        quote: 'Ogni intervento è una sfida, ma la gratitudine negli occhi delle persone che aiutiamo ripaga di ogni fatica. Siamo una squadra unita, pronta a tutto per la nostra comunità.',
+        imageUrl: 'https://picsum.photos/id/237/100/100'
+    }
 ];
 
 export const fetchTestimonialsData = async (): Promise<Testimonial[]> => {
@@ -265,9 +265,9 @@ export const fetchTestimonialsData = async (): Promise<Testimonial[]> => {
 
 // --- GALLERY ---
 const mockDedicatedGalleryImages: GalleryImage[] = [
-  { id: 'gallery-5', src: 'https://picsum.photos/id/1011/800/600', alt: 'Squadra di ricerca persona scomparsa', category: 'Interventi' },
-  { id: 'gallery-7', src: 'https://picsum.photos/id/823/800/600', alt: 'Momento di gruppo dei volontari', category: 'Eventi' },
-  { id: 'gallery-9', src: 'https://picsum.photos/id/312/800/600', alt: 'Un nuovo volontario si unisce al gruppo', category: 'Formazione' },
+    { id: 'gallery-5', src: 'https://picsum.photos/id/1011/800/600', alt: 'Squadra di ricerca persona scomparsa', category: 'Interventi' },
+    { id: 'gallery-7', src: 'https://picsum.photos/id/823/800/600', alt: 'Momento di gruppo dei volontari', category: 'Eventi' },
+    { id: 'gallery-9', src: 'https://picsum.photos/id/312/800/600', alt: 'Un nuovo volontario si unisce al gruppo', category: 'Formazione' },
 ];
 
 export const fetchAllGalleryImages = async (): Promise<GalleryImage[]> => {
@@ -297,12 +297,12 @@ export const fetchAllGalleryImages = async (): Promise<GalleryImage[]> => {
 
 // --- PREVENTION ARTICLES ---
 const mockPreventionArticles: PreventionArticle[] = [
-  { id: 1, title: 'Cosa Fare in Caso di Terremoto', description: 'Le norme di comportamento da adottare prima, durante e dopo una scossa sismica.', icon: 'fa-house-crack', slug: 'terremoto' },
-  { id: 2, title: 'Il Kit di Emergenza', description: 'Prepara uno zaino con l\'essenziale: acqua, cibo, medicinali e altri oggetti vitali.', icon: 'fa-briefcase-medical', slug: 'kit-emergenza' },
-  { id: 3, title: 'Rischio Alluvioni', description: 'Azioni e manutenzione per ridurre il rischio idrogeologico e proteggersi dall\'acqua.', icon: 'fa-house-flood-water', slug: 'alluvioni' },
-  { id: 4, title: 'Rischio Incendi Boschivi', description: 'Come riconoscere i comportamenti a rischio e segnalare un incendio per salvaguardare i boschi.', icon: 'fa-fire', slug: 'incendi' },
-  { id: 5, title: 'Sicurezza in Casa', description: 'Semplici controlli per rendere la tua abitazione un luogo più sicuro per tutta la famiglia.', icon: 'fa-house-lock', slug: 'sicurezza-casa' },
-  { id: 6, title: 'Misure di Autoprotezione', description: 'Essere un cittadino consapevole e informato è il primo passo per una comunità resiliente.', icon: 'fa-person-shelter', slug: 'autoprotezione' },
+    { id: 1, title: 'Cosa Fare in Caso di Terremoto', description: 'Le norme di comportamento da adottare prima, durante e dopo una scossa sismica.', icon: 'fa-house-crack', slug: 'terremoto' },
+    { id: 2, title: 'Il Kit di Emergenza', description: 'Prepara uno zaino con l\'essenziale: acqua, cibo, medicinali e altri oggetti vitali.', icon: 'fa-briefcase-medical', slug: 'kit-emergenza' },
+    { id: 3, title: 'Rischio Alluvioni', description: 'Azioni e manutenzione per ridurre il rischio idrogeologico e proteggersi dall\'acqua.', icon: 'fa-house-flood-water', slug: 'alluvioni' },
+    { id: 4, title: 'Rischio Incendi Boschivi', description: 'Come riconoscere i comportamenti a rischio e segnalare un incendio per salvaguardare i boschi.', icon: 'fa-fire', slug: 'incendi' },
+    { id: 5, title: 'Sicurezza in Casa', description: 'Semplici controlli per rendere la tua abitazione un luogo più sicuro per tutta la famiglia.', icon: 'fa-house-lock', slug: 'sicurezza-casa' },
+    { id: 6, title: 'Misure di Autoprotezione', description: 'Essere un cittadino consapevole e informato è il primo passo per una comunità resiliente.', icon: 'fa-person-shelter', slug: 'autoprotezione' },
 ];
 
 export const fetchPreventionArticles = async (): Promise<PreventionArticle[]> => {
@@ -314,10 +314,10 @@ export const fetchPreventionArticles = async (): Promise<PreventionArticle[]> =>
 
 // --- PREVENTION DETAILS ---
 const mockPreventionDetails: PreventionArticleDetail[] = [
-    { 
-        slug: 'terremoto', 
-        title: 'Cosa Fare in Caso di Terremoto', 
-        subtitle: 'Un terremoto è un evento improvviso. Essere preparati può fare la differenza.', 
+    {
+        slug: 'terremoto',
+        title: 'Cosa Fare in Caso di Terremoto',
+        subtitle: 'Un terremoto è un evento improvviso. Essere preparati può fare la differenza.',
         mainIcon: 'fa-house-crack',
         content: [
             { title: 'Prima del Terremoto', icon: 'fa-shield-halved', points: ['Individua i punti sicuri in casa (sotto tavoli robusti, contro muri portanti).', 'Fissa alle pareti mobili alti, librerie e scaffali.', 'Tieni a portata di mano un kit di emergenza.', 'Chiudi i rubinetti di gas, acqua e l\'interruttore generale della luce.', 'Informa i tuoi familiari sui comportamenti da adottare.'] },
@@ -325,10 +325,10 @@ const mockPreventionDetails: PreventionArticleDetail[] = [
             { title: 'Dopo il Terremoto', icon: 'fa-first-aid', points: ['Assicurati del tuo stato di salute e di quello degli altri.', 'Non usare l\'ascensore e fai attenzione alle scale.', 'Non usare il telefono se non per emergenze, per non intasare le linee.', 'Raggiungi le aree di attesa individuate dal piano di protezione civile.', 'Limita l\'uso dell\'auto per non intralciare i soccorsi.'] }
         ]
     },
-    { 
-        slug: 'kit-emergenza', 
-        title: 'Il Kit di Emergenza', 
-        subtitle: 'Prepara uno zaino per essere autosufficiente per diversi giorni. Tienilo in un posto facile da raggiungere.', 
+    {
+        slug: 'kit-emergenza',
+        title: 'Il Kit di Emergenza',
+        subtitle: 'Prepara uno zaino per essere autosufficiente per diversi giorni. Tienilo in un posto facile da raggiungere.',
         mainIcon: 'fa-briefcase-medical',
         content: [
             { title: 'Acqua e Cibo', icon: 'fa-bottle-water', points: ['Acqua (almeno 3 litri a persona al giorno)', 'Cibo a lunga conservazione (scatolame, barrette energetiche)', 'Apriscatole manuale', 'Gavette e posate'] },
@@ -336,10 +336,10 @@ const mockPreventionDetails: PreventionArticleDetail[] = [
             { title: 'Strumenti e Documenti', icon: 'fa-toolbox', points: ['Torcia a dinamo o con batterie di scorta', 'Radio a batterie', 'Fischietto per segnalazioni', 'Coltellino multiuso', 'Copia dei documenti e contanti', 'Caricabatterie portatile per cellulare'] }
         ]
     },
-    { 
-        slug: 'alluvioni', 
-        title: 'Cosa Fare in Caso di Alluvione', 
-        subtitle: 'Il rischio idrogeologico è presente sul nostro territorio. Informarsi è il primo passo per la sicurezza.', 
+    {
+        slug: 'alluvioni',
+        title: 'Cosa Fare in Caso di Alluvione',
+        subtitle: 'Il rischio idrogeologico è presente sul nostro territorio. Informarsi è il primo passo per la sicurezza.',
         mainIcon: 'fa-house-flood-water',
         content: [
             { title: 'Prima dell\'Alluvione', icon: 'fa-shield-halved', points: ['Informati sull\'allerta meteo e sui piani di evacuazione.', 'Metti in sicurezza i beni che si trovano in cantine o piani bassi.', 'Assicurati che tutti in famiglia conoscano le norme di comportamento.', 'Non ostruire tombini e sistemi di scarico.', 'Prepara il tuo kit di emergenza.'] },
@@ -347,10 +347,10 @@ const mockPreventionDetails: PreventionArticleDetail[] = [
             { title: 'Dopo l\'Alluvione', icon: 'fa-house-chimney-medical', points: ['Segui le indicazioni delle autorità prima di lasciare i luoghi sicuri.', 'Non toccare cavi elettrici caduti.', 'Non bere acqua dal rubinetto prima che sia dichiarata potabile.', 'Butta via i cibi che sono stati a contatto con l\'acqua dell\'alluvione.', 'Aiuta i vicini in difficoltà, se puoi farlo in sicurezza.'] }
         ]
     },
-    { 
-        slug: 'incendi', 
-        title: 'Rischio Incendi Boschivi', 
-        subtitle: 'La maggior parte degli incendi è causata dall\'uomo. Bastano poche regole per proteggere i nostri boschi.', 
+    {
+        slug: 'incendi',
+        title: 'Rischio Incendi Boschivi',
+        subtitle: 'La maggior parte degli incendi è causata dall\'uomo. Bastano poche regole per proteggere i nostri boschi.',
         mainIcon: 'fa-fire',
         content: [
             { title: 'Prevenzione', icon: 'fa-circle-exclamation', points: ['Non gettare mozziconi di sigaretta o fiammiferi accesi.', 'Non accendere fuochi nelle aree boschive, se non negli spazi attrezzati.', 'Non parcheggiare l\'auto su erba secca, la marmitta calda può innescare un incendio.', 'Pulisci il tuo terreno da sterpaglie e materiale infiammabile.', 'Segnala immediatamente ogni principio di incendio al 115 o al 1515.'] },
@@ -358,10 +358,10 @@ const mockPreventionDetails: PreventionArticleDetail[] = [
             { title: 'Dopo l\'Incendio', icon: 'fa-seedling', points: ['Rispetta i divieti di accesso alle aree percorse dal fuoco.', 'Fai attenzione al rischio di caduta di alberi o smottamenti.', 'Non disperdere nell\'ambiente le ceneri, possono essere inquinanti.', 'Sostieni le campagne di rimboschimento e riqualificazione.', 'Collabora con le associazioni di volontariato per la tutela del territorio.'] }
         ]
     },
-    { 
-        slug: 'sicurezza-casa', 
-        title: 'Sicurezza in Casa', 
-        subtitle: 'La tua casa è il tuo rifugio. Rendila un luogo sicuro con poche e semplici attenzioni.', 
+    {
+        slug: 'sicurezza-casa',
+        title: 'Sicurezza in Casa',
+        subtitle: 'La tua casa è il tuo rifugio. Rendila un luogo sicuro con poche e semplici attenzioni.',
         mainIcon: 'fa-house-lock',
         content: [
             { title: 'Impianto Elettrico', icon: 'fa-bolt', points: ['Non sovraccaricare le prese elettriche con troppe spine.', 'Utilizza prese multiple (ciabatte) con marchio di qualità e interruttore.', 'Controlla periodicamente l\'integrità di cavi e spine.', 'Fai installare un interruttore differenziale (salvavita) e testalo regolarmente.'] },
@@ -369,10 +369,10 @@ const mockPreventionDetails: PreventionArticleDetail[] = [
             { title: 'Prevenzione Incendi', icon: 'fa-fire-extinguisher', points: ['Installa rilevatori di fumo e controlla le batterie periodicamente.', 'Tieni un estintore a portata di mano e impara ad usarlo.', 'Non lasciare mai candele accese incustodite.', 'Pulisci regolarmente la cappa della cucina dai residui di grasso.'] }
         ]
     },
-    { 
-        slug: 'autoprotezione', 
-        title: 'Misure di Autoprotezione', 
-        subtitle: 'La protezione civile inizia da te. Un cittadino informato è una risorsa per tutta la comunità.', 
+    {
+        slug: 'autoprotezione',
+        title: 'Misure di Autoprotezione',
+        subtitle: 'La protezione civile inizia da te. Un cittadino informato è una risorsa per tutta la comunità.',
         mainIcon: 'fa-person-shelter',
         content: [
             { title: 'Il Tuo Ruolo Attivo', icon: 'fa-user-check', points: ['Essere resilienti significa essere capaci di affrontare un\'emergenza riducendone l\'impatto. Per farlo, ogni cittadino ha un ruolo fondamentale.', 'Informati: Conosci i rischi del tuo territorio e il piano di protezione civile del tuo comune.', 'Preparati: Adotta le misure di prevenzione e prepara il tuo kit di emergenza.', 'Partecipa: Segui i canali di informazione ufficiali e diffondi solo notizie verificate.'] },

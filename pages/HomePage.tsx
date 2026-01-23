@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
       <section className="relative bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${isHeroImageLoaded ? 'opacity-30 dark:opacity-40' : 'opacity-0'}`}
-          style={{ backgroundImage: "url('https://picsum.photos/1600/900?image=985')" }}
+          style={{ backgroundImage: `url('${import.meta.env.BASE_URL}images/bg-hero.webp')` }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-gray-900 via-transparent"></div>
         <div className="relative z-10 text-center p-4">
@@ -67,14 +67,14 @@ const HomePage: React.FC = () => {
                     Siamo attivi sul territorio con una vasta gamma di interventi, dalla prevenzione dei rischi alla gestione delle emergenze.
                   </p>
                   <div className="lg:hidden my-6">
-                     <img src="https://www.quotidianocontribuenti.com/wp-content/uploads/2023/02/protezione-civile.jpg" alt="Volontari al lavoro per i servizi" className="rounded-lg shadow-2xl mx-auto"/>
+                     <img src={`${import.meta.env.BASE_URL}images/servizi.webp`} alt="Volontari al lavoro per i servizi" className="rounded-lg shadow-2xl mx-auto"/>
                   </div>
                   <Link to="/servizi" className="bg-emerald-600 text-white font-bold py-3 px-8 rounded-full hover:bg-emerald-700 transition-colors duration-300">
                     Scopri tutti i servizi
                   </Link>
                 </div>
                 <div className="w-full lg:w-1/2 p-4 hidden lg:block">
-                  <img src="https://www.quotidianocontribuenti.com/wp-content/uploads/2023/02/protezione-civile.jpg" alt="Volontari al lavoro per i servizi" className="rounded-lg shadow-2xl"/>
+                  <img src={`${import.meta.env.BASE_URL}images/servizi.webp`} alt="Volontari al lavoro per i servizi" className="rounded-lg shadow-2xl"/>
                 </div>
               </div>
             </div>
@@ -92,14 +92,14 @@ const HomePage: React.FC = () => {
                     Rimani aggiornato sulle nostre più recenti attività e interventi sul campo.
                   </p>
                    <div className="lg:hidden my-6">
-                    <img src="https://picsum.photos/600/400?image=1015" alt="Notizie e aggiornamenti" className="rounded-lg shadow-2xl mx-auto"/>
+                    <img src={`${import.meta.env.BASE_URL}images/notizie.webp`} alt="Notizie e aggiornamenti" className="rounded-lg shadow-2xl mx-auto"/>
                   </div>
                   <Link to="/news" className="bg-emerald-600 text-white font-bold py-3 px-8 rounded-full hover:bg-emerald-700 transition-colors duration-300">
                     Leggi tutte le notizie
                   </Link>
                 </div>
                 <div className="w-full lg:w-1/2 p-4 hidden lg:block">
-                  <img src="https://picsum.photos/600/400?image=1015" alt="Notizie e aggiornamenti" className="rounded-lg shadow-2xl"/>
+                  <img src={`${import.meta.env.BASE_URL}images/notizie.webp`} alt="Notizie e aggiornamenti" className="rounded-lg shadow-2xl"/>
                 </div>
               </div>
             </div>
@@ -142,14 +142,14 @@ const HomePage: React.FC = () => {
                     Essere preparati è il primo passo verso la sicurezza. Scopri con noi le buone pratiche di protezione civile.
                   </p>
                   <div className="lg:hidden my-6">
-                    <img src="https://picsum.photos/600/400?image=54" alt="Cultura della prevenzione" className="rounded-lg shadow-2xl mx-auto"/>
+                    <img src={`${import.meta.env.BASE_URL}images/prevenzione.webp`} alt="Cultura della prevenzione" className="rounded-lg shadow-2xl mx-auto"/>
                   </div>
                   <Link to="/prevenzione" className="bg-emerald-600 text-white font-bold py-3 px-8 rounded-full hover:bg-emerald-700 transition-colors duration-300">
                     Scopri di più
                   </Link>
                 </div>
                 <div className="w-full lg:w-1/2 p-4 hidden lg:block">
-                  <img src="https://picsum.photos/600/400?image=54" alt="Cultura della prevenzione" className="rounded-lg shadow-2xl"/>
+                  <img src={`${import.meta.env.BASE_URL}images/prevenzione.webp`} alt="Cultura della prevenzione" className="rounded-lg shadow-2xl"/>
                 </div>
               </div>
             </div>
@@ -167,14 +167,14 @@ const HomePage: React.FC = () => {
                     Siamo un gruppo di cittadini che ha deciso di dedicare parte del proprio tempo alla comunità. Nati nel 2005, ci impegniamo ogni giorno per garantire un futuro più sicuro al nostro territorio.
                   </p>
                   <div className="lg:hidden my-6">
-                    <img src="https://picsum.photos/600/400?image=1050" alt="Gruppo di volontari" className="rounded-lg shadow-2xl mx-auto"/>
+                    <img src={`${import.meta.env.BASE_URL}images/chi-siamo.webp`} alt="Gruppo di volontari" className="rounded-lg shadow-2xl mx-auto"/>
                   </div>
                   <Link to="/chi-siamo" className="bg-emerald-600 text-white font-bold py-3 px-8 rounded-full hover:bg-emerald-700 transition-colors duration-300">
                     La Nostra Storia
                   </Link>
                 </div>
                 <div className="w-full lg:w-1/2 p-4 hidden lg:block">
-                  <img src="https://picsum.photos/600/400?image=1050" alt="Gruppo di volontari" className="rounded-lg shadow-2xl"/>
+                  <img src={`${import.meta.env.BASE_URL}images/chi-siamo.webp`} alt="Gruppo di volontari" className="rounded-lg shadow-2xl"/>
                 </div>
               </div>
             </div>
