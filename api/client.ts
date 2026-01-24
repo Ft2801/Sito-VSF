@@ -189,25 +189,25 @@ const mockServices: Service[] = [
     {
         id: 1,
         title: 'Gestione Emergenza Alluvione',
-        description: 'Intervento tempestivo durante l\'alluvione di Novembre, con evacuazione di famiglie e messa in sicurezza degli argini del fiume con sacchi di sabbia.',
+        description: 'Interventi di messa in sicurezza e supporto alle popolazioni colpite da alluvione.',
         imageUrl: `${import.meta.env.BASE_URL}images/alluvione.webp`
     },
     {
         id: 2,
         title: 'Campagna Antincendio Boschivo Estiva',
-        description: 'Pattugliamento e monitoraggio delle aree boschive per tutta la stagione estiva. Diversi principi di incendio sono stati spenti sul nascere grazie alla nostra vigilanza.',
+        description: 'Pattugliamento e monitoraggio delle aree boschive per tutta la stagione estiva.',
         imageUrl: `${import.meta.env.BASE_URL}images/pattugliamento-incendi.webp`
     },
     {
         id: 3,
         title: 'Presidio Strade per Eventi e Manifestazioni',
-        description: 'Forniamo supporto logistico e di sicurezza stradale durante eventi sportivi, sagre e manifestazioni, garantendo la sicurezza di partecipanti e spettatori.',
+        description: 'Forniamo supporto di sicurezza stradale durante eventi sportivi, sagre e manifestazioni, garantendo la sicurezza di partecipanti e spettatori.',
         imageUrl: `${import.meta.env.BASE_URL}images/eventi-strada.webp`
     },
     {
         id: 5,
         title: 'Distribuzione Viveri e Beni di Prima Necessità',
-        description: 'Organizzazione di un centro di raccolta e distribuzione di aiuti per le famiglie colpite dalla crisi economica, fornendo cibo, vestiti e supporto morale.',
+        description: 'Organizzazione di un centro di raccolta e distribuzione di aiuti per le popolazioni colpite da calamità, fornendo viveri, medicine e altri beni essenziali.',
         imageUrl: `${import.meta.env.BASE_URL}images/distribuzione.webp`
     },
     {

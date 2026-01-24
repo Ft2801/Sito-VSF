@@ -1,27 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import AnimatedComponent from '../components/AnimatedComponent';
-import TestimonialCard from '../components/TestimonialCard';
-import type { Testimonial } from '../types';
-import { fetchTestimonialsData } from '../api/client';
 
 const AboutPage: React.FC = () => {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [loadingTestimonials, setLoadingTestimonials] = useState(true);
-
-  useEffect(() => {
-    const loadTestimonials = async () => {
-      setLoadingTestimonials(true);
-      try {
-        const data = await fetchTestimonialsData();
-        setTestimonials(data);
-      } catch (error) {
-        console.error("Errore nel recupero delle testimonianze:", error);
-      } finally {
-        setLoadingTestimonials(false);
-      }
-    };
-    loadTestimonials();
-  }, []);
 
   return (
     <div className="bg-white dark:bg-gray-900 py-16">
@@ -34,7 +14,7 @@ const AboutPage: React.FC = () => {
         </AnimatedComponent>
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <AnimatedComponent delay={200}>
+          <AnimatedComponent delay={200} className="pl-6">
             <h2 className="text-3xl font-bold text-emerald-500 mb-4">Dalle Origini ad Oggi</h2>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
               L'associazione "Volontari Senza Frontiere" nasce nel 2005 da un piccolo gruppo di cittadini animati da un forte senso civico e dal desiderio di rendersi utili per la propria comunità. Inizialmente dotati di pochi mezzi ma di tanta buona volontà, abbiamo iniziato con piccoli interventi di monitoraggio e supporto durante eventi locali.
@@ -44,11 +24,11 @@ const AboutPage: React.FC = () => {
             </p>
           </AnimatedComponent>
           <AnimatedComponent initialClass="animate-fade-in-zoom" className="text-center">
-            <img src="https://picsum.photos/500/350?image=1041" alt="Vecchia foto dell'associazione" className="rounded-lg shadow-xl mx-auto" />
+            <img src="/images/notizie.webp" alt="Vecchia foto dell'associazione" className="rounded-lg shadow-xl mx-auto w-4/5" />
           </AnimatedComponent>
         </div>
 
-        <div className="bg-gray-100 dark:bg-gray-800 p-10 rounded-lg mb-16">
+        <div className="bg-gray-100 dark:bg-gray-800 p-10 rounded-lg">
            <AnimatedComponent className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">I Nostri Volontari</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mt-2">
@@ -57,7 +37,7 @@ const AboutPage: React.FC = () => {
           </AnimatedComponent>
            <div className="grid md:grid-cols-2 gap-12 items-center">
              <AnimatedComponent initialClass="animate-fade-in-zoom" className="text-center">
-               <img src="https://picsum.photos/500/350?image=823" alt="Gruppo di volontari" className="rounded-lg shadow-xl mx-auto" />
+               <img src="/images/notizie.webp" alt="Gruppo di volontari" className="rounded-lg shadow-xl mx-auto" />
              </AnimatedComponent>
              <AnimatedComponent delay={200}>
               <h3 className="text-2xl font-bold text-emerald-500 mb-4">Persone Comuni, Impegno Straordinario</h3>
@@ -70,28 +50,6 @@ const AboutPage: React.FC = () => {
             </AnimatedComponent>
           </div>
         </div>
-
-        <AnimatedComponent>
-            <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Le Voci dei Nostri Volontari</h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mt-2">
-                    Cosa significa far parte della nostra squadra? Lasciamo che siano loro a raccontarlo.
-                </p>
-            </div>
-            {loadingTestimonials ? (
-               <div className="text-center py-10">
-                <i className="fas fa-spinner fa-spin text-4xl text-emerald-500"></i>
-               </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {testimonials.map((testimonial, index) => (
-                      <AnimatedComponent key={testimonial.id} delay={index * 150}>
-                          <TestimonialCard testimonial={testimonial} />
-                      </AnimatedComponent>
-                  ))}
-              </div>
-            )}
-        </AnimatedComponent>
 
       </div>
     </div>

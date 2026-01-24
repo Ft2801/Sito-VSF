@@ -34,9 +34,9 @@ const CollaboratePage: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <AnimatedComponent initialClass="animate-fade-in-zoom" className="text-center">
-            <img src="https://picsum.photos/500/350?image=312" alt="Stretta di mano" className="rounded-lg shadow-xl mx-auto" />
+            <img src="/images/notizie.webp" alt="Stretta di mano" className="rounded-lg shadow-xl mx-auto w-4/5" />
           </AnimatedComponent>
-          <AnimatedComponent delay={200}>
+          <AnimatedComponent delay={200} className="pr-6">
             <h2 className="text-3xl font-bold text-emerald-500 mb-4">Perché Diventare Volontario?</h2>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
               Entrare in "Volontari Senza Frontiere" non significa solo donare il proprio tempo, ma intraprendere un percorso di crescita personale e collettiva. È un'opportunità per acquisire nuove competenze, conoscere persone straordinarie e fare la differenza in modo concreto.

@@ -67,9 +67,6 @@ const NewsPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-full flex flex-col border border-gray-100 dark:border-gray-700">
-                <div style={{ height: '192px' }} className="w-full bg-gray-200 dark:bg-gray-700">
-                  <SkeletonLoader variant="rectangular" height="100%" className="w-full" />
-                </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex justify-between items-center mb-4">
                     <SkeletonLoader variant="text" width="30%" />

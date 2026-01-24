@@ -28,7 +28,7 @@ const LocationPage: React.FC = () => {
           </div>
         </AnimatedComponent>
 
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center">
           <AnimatedComponent delay={100} className="w-full max-w-2xl">
             <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-md text-center">
               <h2 className="text-2xl font-bold text-emerald-500 mb-4">La Nostra Sede</h2>
